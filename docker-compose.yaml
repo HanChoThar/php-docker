@@ -12,3 +12,19 @@ services:
       dockerfile: ./php/Dockerfile
     volumes:
       - ./app:/app
+
+  db:
+    image: mysql:8.0.33
+    volumes:
+      - mysqldata:/var/lib/mysql
+    restart: unless-stopped
+    ports:
+      - "4306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: docker-db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: secret
+
+volumes:
+  mysqldata: {}
