@@ -69,7 +69,6 @@
 </head>
 <body>
     <?php
-
     // Function to convert local time to UTC time
     function convertToUTC($localTime, $timezone) {
         $dateTime = new DateTime($localTime, new DateTimeZone($timezone));
