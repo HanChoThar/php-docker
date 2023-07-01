@@ -14,6 +14,12 @@ services:
     container_name: app-service
     volumes:
       - ./app:/var/www/html
+    environment:
+      MYSQL_HOST: db
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
 
   db:
     image: mysql:8.0.33
